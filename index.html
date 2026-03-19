@@ -752,7 +752,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 60px
         <div class="form-success-sub">We'll get back to you at <strong>education@dronashield.in</strong> within 24 hours.</div>
       </div>
       <form id="enrollForm" action="https://api.web3forms.com/submit" method="POST" onsubmit="handleForm(event)">
-        <input type="hidden" name="access_key" value="education@dronashield.in">
+        <input type="hidden" name="access_key" value="cf6f1790-681a-4eda-8a25-096455f94a0b">
         <input type="hidden" name="subject" value="New Enrollment Request — Dronashield Institute">
         <input type="hidden" name="from_name" value="Dronashield Institute Website">
         <input type="hidden" name="redirect" value="false">
@@ -889,7 +889,7 @@ function handleForm(e){
   const formData = new FormData(form);
 
   // Override access_key with actual email for Web3Forms
-  formData.set('access_key', 'education@dronashield.in');
+  formData.set('access_key', 'cf6f1790-681a-4eda-8a25-096455f94a0b');
 
   // Convert to JSON for Web3Forms API
   const object = {};
