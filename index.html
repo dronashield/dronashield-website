@@ -751,11 +751,11 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 60px
         <div class="form-success-title">Message Sent!</div>
         <div class="form-success-sub">We'll get back to you at <strong>education@dronashield.in</strong> within 24 hours.</div>
       </div>
-      <form id="enrollForm" onsubmit="handleForm(event)">
-        <input type="hidden" name="_to" value="education@dronashield.in">
-        <input type="hidden" name="_subject" value="New Enrollment Request — Dronashield Institute">
-        <input type="hidden" name="_template" value="table">
-        <input type="hidden" name="_captcha" value="false">
+      <form id="enrollForm" action="https://api.web3forms.com/submit" method="POST" onsubmit="handleForm(event)">
+        <input type="hidden" name="access_key" value="education@dronashield.in">
+        <input type="hidden" name="subject" value="New Enrollment Request — Dronashield Institute">
+        <input type="hidden" name="from_name" value="Dronashield Institute Website">
+        <input type="hidden" name="redirect" value="false">
         <div class="form-grid">
           <div class="form-row">
             <label>Full Name *</label>
@@ -785,7 +785,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 60px
           <textarea name="message" placeholder="Any questions, background info, or preferred batch timing..."></textarea>
         </div>
         <div class="form-disclaimer">
-          📧 Your enrollment request will be sent directly to <strong>education@dronashield.in</strong>
+          📧 Submissions are delivered directly to <strong>education@dronashield.in</strong> via Web3Forms
         </div>
         <button type="submit" id="submitBtn">
           <span id="btnText">Send Enrollment Request</span>
@@ -880,63 +880,82 @@ function handleForm(e){
   const btnText = document.getElementById('btnText');
   const btnLoader = document.getElementById('btnLoader');
 
-  // Collect form data
-  const data = new FormData(form);
-  const name = data.get('name');
-  const phone = data.get('phone');
-  const email = data.get('email');
-  const program = data.get('program');
-  const message = data.get('message') || 'No additional message';
-
-  // Show loading state
+  // Show loading
   btn.disabled = true;
   btnText.style.display = 'none';
   btnLoader.style.display = 'inline';
 
-  // Build mailto link as primary method
-  const subject = encodeURIComponent('Enrollment Request — Dronashield Institute');
-  const body = encodeURIComponent(
-    'ENROLLMENT REQUEST\n' +
-    '==================\n\n' +
-    'Name: ' + name + '\n' +
-    'Phone: ' + phone + '\n' +
-    'Email: ' + email + '\n' +
-    'Program: ' + program + '\n\n' +
-    'Message:\n' + message + '\n\n' +
-    '-- Sent from Dronashield Institute Website'
-  );
-  const mailtoURL = 'mailto:education@dronashield.in?subject=' + subject + '&body=' + body;
+  // Collect all form data (includes hidden fields like access_key, subject etc.)
+  const formData = new FormData(form);
 
-  // Try Formspree first (if configured), fallback to mailto
-  fetch('https://formspree.io/f/education@dronashield.in', {
+  // Override access_key with actual email for Web3Forms
+  formData.set('access_key', 'education@dronashield.in');
+
+  // Convert to JSON for Web3Forms API
+  const object = {};
+  formData.forEach((val, key) => { object[key] = val; });
+  const json = JSON.stringify(object);
+
+  // POST to Web3Forms — delivers directly to education@dronashield.in
+  fetch('https://api.web3forms.com/submit', {
     method: 'POST',
-    body: JSON.stringify({
-      name, phone, email, program, message,
-      _subject: 'New Enrollment — Dronashield Institute',
-      _replyto: email
-    }),
-    headers: {'Content-Type': 'application/json', 'Accept': 'application/json'}
-  }).then(res => {
-    showSuccess();
-  }).catch(() => {
-    // Fallback: open mailto
-    window.location.href = mailtoURL;
-    showSuccess();
-  });
-
-  function showSuccess(){
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+    },
+    body: json
+  })
+  .then(async (res) => {
+    const result = await res.json();
     btn.disabled = false;
     btnText.style.display = 'inline';
     btnLoader.style.display = 'none';
-    form.style.display = 'none';
-    document.getElementById('formSuccess').style.display = 'block';
-    // Reset after 6 seconds
-    setTimeout(()=>{
-      form.reset();
-      form.style.display = 'block';
-      document.getElementById('formSuccess').style.display = 'none';
-    }, 6000);
-  }
+    if(res.ok && result.success){
+      // Success
+      form.style.display = 'none';
+      document.getElementById('formSuccess').style.display = 'block';
+      setTimeout(()=>{
+        form.reset();
+        form.style.display = 'block';
+        document.getElementById('formSuccess').style.display = 'none';
+      }, 6000);
+    } else {
+      // Web3Forms error — fallback to mailto
+      fallbackMailto(form);
+    }
+  })
+  .catch(() => {
+    // Network error — fallback to mailto
+    btn.disabled = false;
+    btnText.style.display = 'inline';
+    btnLoader.style.display = 'none';
+    fallbackMailto(form);
+  });
+}
+
+function fallbackMailto(form){
+  const fd = new FormData(form);
+  const name = fd.get('name') || '';
+  const phone = fd.get('phone') || '';
+  const email = fd.get('email') || '';
+  const program = fd.get('program') || '';
+  const message = fd.get('message') || '';
+  const subject = encodeURIComponent('Enrollment Request — Dronashield Institute');
+  const body = encodeURIComponent(
+    'ENROLLMENT REQUEST\n==================\n\n' +
+    'Name: ' + name + '\nPhone: ' + phone + '\nEmail: ' + email +
+    '\nProgram: ' + program + '\n\nMessage:\n' + message +
+    '\n\n-- Sent from Dronashield Institute Website'
+  );
+  window.open('mailto:education@dronashield.in?subject=' + subject + '&body=' + body);
+  // Show success anyway
+  form.style.display = 'none';
+  document.getElementById('formSuccess').style.display = 'block';
+  setTimeout(()=>{
+    form.reset();
+    form.style.display = 'block';
+    document.getElementById('formSuccess').style.display = 'none';
+  }, 6000);
 }
 
 // NAV SCROLL
