@@ -6,15 +6,23 @@
   </url>
 
   <url>
-    <loc>https://dronashield.in/about</loc>
-  </url>
-
-  <url>
-    <loc>https://dronashield.in/services</loc>
+    <loc>https://dronashield.in/courses</loc>
   </url>
 
   <url>
     <loc>https://dronashield.in/contact</loc>
+  </url>
+
+  <url>
+    <loc>https://dronashield.in/tools</loc>
+  </url>
+
+  <url>
+    <loc>https://dronashield.in/lab</loc>
+  </url>
+
+  <url>
+    <loc>https://dronashield.in/placements</loc>
   </url>
 
 </urlset>
