@@ -485,7 +485,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 60px
     <li><a href="#tools">Tools</a></li>
     <li><a href="#hacking">Lab</a></li>
     <li><a href="#placed">Placements</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a href="#verify">Verify</a></li><li><a href="#contact">Contact</a></li>
   </ul>
   <button class="nav-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Enroll Now</button>
   <button class="hamburger" id="hamburger" onclick="toggleMobileNav()" aria-label="Menu">
@@ -501,7 +501,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 60px
     <li><a href="#hacking" onclick="closeMobileNav()">Lab</a></li>
     <li><a href="#placed" onclick="closeMobileNav()">Placements</a></li>
     <li><a href="#about" onclick="closeMobileNav()">About</a></li>
-    <li><a href="#contact" onclick="closeMobileNav()">Contact</a></li>
+    <li><a href="#verify" onclick="closeMobileNav()">Verify</a></li><li><a href="#contact" onclick="closeMobileNav()">Contact</a></li>
   </ul>
   <button class="mob-enroll" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'});closeMobileNav()">Enroll Now</button>
 </div>
@@ -737,7 +737,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 60px
 </section>
 
 <!-- CONTACT -->
-<section id="contact">
+<section id="verify"><div class="reveal"><div class="s-label">Verify</div><h2 class="s-title grad-text">Certificate Verification</h2><p class="s-sub">Enter the Certificate ID printed on your Dronashield certificate to instantly verify its authenticity.</p><div class="site-card" style="max-width:560px;margin-top:40px;padding:36px 32px;"><div class="form-row"><label for="certIdInput">Certificate ID</label><input type="text" id="certIdInput" placeholder="e.g. DSCF2025/02-17082004" autocomplete="off"></div><button id="verifyBtn" class="btn-primary" style="width:100%;margin-top:6px;">VERIFY CERTIFICATE</button><div id="verifyResult" style="margin-top:24px;"></div></div></div></section><section id="contact">
   <div class="reveal"><div class="s-label">Contact</div><h2 class="s-title grad-text">Initiate Enrollment</h2><p class="s-sub">Ready to enter the field? Drop your details and our team will establish a secure connection within 24 hours.</p></div>
   <div class="contact-grid reveal">
     <div class="contact-info">
@@ -1685,5 +1685,5 @@ document.addEventListener('click',e=>{
 })();
 </script>
 
-</body>
+<script>(function(){const btn=document.getElementById('verifyBtn');const input=document.getElementById('certIdInput');const resultBox=document.getElementById('verifyResult');function esc(s){return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}async function verifyCert(){const id=input.value.trim();if(!id){resultBox.innerHTML='<div style="color:var(--red);font-size:.8rem;">Please enter a Certificate ID.</div>';return;}resultBox.innerHTML='<div style="color:var(--gray-lt);font-size:.8rem;">Checking...</div>';try{const res=await fetch('certificates.json',{cache:'no-store'});const certs=await res.json();const match=certs.find(c => c.certId.toLowerCase() === id.toLowerCase());if(match){resultBox.innerHTML=`<div style="border:1px solid rgba(0,255,65,0.4);background:rgba(0,255,65,0.06);border-radius:10px;padding:20px;"><div style="color:var(--green);font-weight:700;font-family:'Outfit',sans-serif;letter-spacing:.08em;margin-bottom:12px;">✅ CERTIFICATE VALID</div><div style="font-size:.85rem;color:var(--gray-lt);line-height:1.9;"><div><strong style="color:#fff;">Name:</strong> ${esc(match.name)}</div><div><strong style="color:#fff;">Course:</strong> ${esc(match.course)}</div><div><strong style="color:#fff;">Duration:</strong> ${esc(match.startDate)} to ${esc(match.endDate)}</div><div><strong style="color:#fff;">Certificate ID:</strong> ${esc(match.certId)}</div><div><strong style="color:#fff;">Status:</strong> ${esc(match.status || 'Active')}</div></div></div>`;}else{resultBox.innerHTML='<div style="border:1px solid rgba(255,59,107,0.4);background:rgba(255,59,107,0.06);border-radius:10px;padding:20px;color:var(--red);font-weight:700;">❌ CERTIFICATE NOT FOUND. Please check the ID and try again, or contact info@dronashield.in.</div>';}}catch(e){resultBox.innerHTML='<div style="color:var(--red);font-size:.8rem;">Error checking certificate. Please try again later.</div>';}}btn.addEventListener('click', verifyCert);input.addEventListener('keydown', e => { if(e.key === 'Enter') verifyCert(); });})();</script></body>
 </html>
