@@ -1,10 +1,18 @@
 [
-    {
-          "certId": "DSCF2025/02-17082004",
-          "name": "Sandip Kharat",
-          "course": "SOC Analyst Internship",
-          "startDate": "14 Feb 2025",
-          "endDate": "14 Aug 2025",
-          "status": "Active"
-    }
+  {
+    "certId": "DSCF2025/02-17082004",
+    "name": "Sandip Kharat",
+    "course": "SOC Analyst Internship",
+    "startDate": "14 Feb 2025",
+    "endDate": "14 Aug 2025",
+    "status": "Active"
+  },
+  {
+    "certId": "DSCF2026-01-15052001",
+    "name": "Rupesh Vishwas Mane",
+    "course": "CCNA Course",
+    "startDate": "01 January 2026",
+    "endDate": "31 March 2026",
+    "status": "Active"
+  }
 ]
