@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DRONASHIELD // CYBERSECURITY INSTITUTE</title>
+<title>Cybersecurity Courses in Pune | SOC, CEH &amp; VAPT | DronaShield</title>
   <link rel="icon" type="image/png" href="/assets/favicon-logo.png">
-<meta name="description" content="Elite Cybersecurity Training — CEH, SOC, VAPT & Digital Forensics. Pune, India.">
+<meta name="description" content="Cybersecurity courses in Baner, Pune and live online: AI-Powered SOC, CEHv13, VAPT, Digital Forensics and Cloud Security. Enquire about fees and batches.">
 <link rel="canonical" href="https://dronashield.in/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Dronashield Institute">
@@ -76,9 +76,11 @@ h1,h2,h3,h4{font-family:'Outfit',sans-serif;font-weight:700;line-height:1.1;lett
 }
 
 /* PURPLE ACCENT */
---purple: #a855f7;
---purple-dim: rgba(168,85,247,0.15);
---purple-border: rgba(168,85,247,0.3);
+:root {
+  --purple: #a855f7;
+  --purple-dim: rgba(168,85,247,0.15);
+  --purple-border: rgba(168,85,247,0.3);
+}
 
 /* CARD STYLE matching their site */
 .site-card{
@@ -439,6 +441,10 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 60px
 .c-info-icon svg{color:var(--green);}
 .c-info-val a{color:var(--green);text-decoration:none;transition:opacity .2s;}
 .c-info-val a:hover{opacity:.8;text-decoration:underline;}
+/* Readability and accessible navigation */
+section { scroll-margin-top: 84px; }
+.c-modules li, .form-row label, .c-info-label { color: var(--gray-lt); }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior:auto; } *, *::before, *::after { animation:none !important; transition:none !important; } .reveal, .hero-tag, .hero-title-wrap, .hero-sub, .status-row, .hero-btns, .urgency, .hero-stats { opacity:1; transform:none; } }
 </style>
 </head>
 <body>
@@ -459,15 +465,6 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 60px
   <rect width="100%" height="100%" fill="url(#hexPat)"/>
   <rect width="100%" height="100%" fill="url(#hexPat2)"/>
 </svg>
-</div>
-
-<!-- BOOT SCREEN -->
-<div id="bootScreen">
-  <div class="boot-lines" id="bootLines"></div>
-  <div class="boot-bar-wrap">
-    <div class="boot-bar-label">INITIALIZING SYSTEM...</div>
-    <div class="boot-bar"><div class="boot-bar-fill" id="bootFill"></div></div>
-  </div>
 </div>
 
 <!-- NAV -->
@@ -517,7 +514,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 60px
   <div style="position:relative;z-index:1;">
     <div class="hero-tag">Pune's Premier Cybersecurity Institute</div>
     <div class="hero-title-wrap">
-      <h1 class="hero-title"><span class="grad-text">Master the Art of</span><br><span style="color:#fff;">Cyber Defense</span></h1>
+      <h1 class="hero-title"><span class="grad-text">Cybersecurity Courses</span><br><span style="color:#fff;">in Pune</span></h1>
 
     </div>
     <p class="hero-sub">Become a <span class="hi">job-ready cybersecurity professional</span> with real-world training in SOC, Ethical Hacking &amp; VAPT.<br><br>🔒 <span class="hi">Limited Seats · Live Labs · Placement Assistance</span></p>
@@ -528,10 +525,10 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 60px
       <div class="chip"><div class="cdot g"></div>UPTIME: <span id="uptime" style="margin-left:6px;color:var(--green);">00:00:00</span></div>
     </div>
     <div class="hero-btns">
-      <button class="btn-primary" onclick="document.getElementById('courses').scrollIntoView({behavior:'smooth'})">Explore Programs</button>
-      <button class="btn-ghost" onclick="document.getElementById('attackmap').scrollIntoView({behavior:'smooth'})">Live Attack Map</button>
+      <button class="btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Enquire About Courses</button>
+      <a class="btn-ghost" style="text-decoration:none;" href="https://wa.me/918855010112?text=Hello%2C%20please%20share%20course%20details%2C%20fees%20and%20batch%20timings." target="_blank" rel="noopener noreferrer">WhatsApp Course Details</a>
     </div>
-    <p class="urgency">Next Batch Starting Soon — Limited Seats Available</p>
+    <p class="urgency">Contact us for upcoming batch dates, fees and timings</p>
     <div class="hero-stats">
       <div class="stat"><div class="stat-n">500+</div><div class="stat-l">Trained</div></div>
       <div class="stat"><div class="stat-n">5</div><div class="stat-l">Programs</div></div>
@@ -659,15 +656,15 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 60px
 <!-- LIVE THREAT MAP -->
 <section id="attackmap" style="padding:80px 60px 40px;">
   <div class="reveal">
-    <div class="s-label">Live Threat Intelligence</div>
-    <h2 class="s-title grad-text">Cyberthreat Live Map</h2>
+    <div class="s-label">SOC Training Simulation</div>
+    <h2 class="s-title grad-text">Cyberthreat Training Simulation</h2>
     <p class="s-sub">Documented real-world attack scenarios — the campaigns, CVEs and MITRE ATT&amp;CK techniques our SOC students triage in the lab, replayed live on the globe.</p>
   </div>
 </section>
 <div class="kaspersky-map-section" id="kasperskyMapSection">
   <!-- TOP BAR -->
   <div class="km-topbar">
-    <div class="km-live"><span class="km-live-dot"></span>LIVE</div>
+    <div class="km-live"><span class="km-live-dot"></span>SIMULATION</div>
     <span class="km-title">DRONASHIELD // CYBERTHREAT MONITOR</span>
     <span class="km-clock" id="kmClock"></span>
   </div>
@@ -857,8 +854,9 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 60px
       <div id="formSuccess" style="display:none;" class="form-success-msg">
         <div class="form-success-icon">✓</div>
         <div class="form-success-title">Message Sent!</div>
-        <div class="form-success-sub">We'll get back to you at <strong>education@dronashield.in</strong> within 24 hours.</div>
+        <div class="form-success-sub">Our admissions team will contact you using the details you provided within 24 hours.</div>
       </div>
+      <div id="formError" role="alert" style="display:none;margin-bottom:16px;color:var(--red);"></div>
       <form id="enrollForm" action="https://api.web3forms.com/submit" method="POST" onsubmit="handleForm(event)">
         <input type="hidden" name="access_key" value="cf6f1790-681a-4eda-8a25-096455f94a0b">
         <input type="hidden" name="subject" value="New Enrollment Request — Dronashield Institute">
@@ -894,7 +892,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 60px
           <textarea name="message" placeholder="Any questions, background info, or preferred batch timing..."></textarea>
         </div>
         <div class="form-disclaimer">
-          📧 Submissions are delivered directly to <strong>education@dronashield.in</strong> via Web3Forms
+          By submitting, you request a response from our admissions team about your selected course.
         </div>
         <button type="submit" id="submitBtn">
           <span id="btnText">Send Enrollment Request</span>
@@ -939,16 +937,6 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 60px
 </a>
 
 <script>
-// BOOT SCREEN
-const bootMsg=[{t:'info',s:'Initializing Dronashield Security OS v4.2.1...'},{t:'ok',s:'Kernel modules loaded'},{t:'ok',s:'Network interfaces configured'},{t:'info',s:'Loading exploit database [1847 modules]'},{t:'ok',s:'Cryptographic subsystem initialized'},{t:'warn',s:'IDS signatures updating...'},{t:'ok',s:'IDS signatures updated [CVE-2024-3400 added]'},{t:'ok',s:'Firewall rules applied'},{t:'info',s:'Establishing secure channel...'},{t:'ok',s:'All systems nominal — launching interface'}];
-const bLines=document.getElementById('bootLines'),bFill=document.getElementById('bootFill');
-let bi=0;
-function showBoot(){
-  if(bi>=bootMsg.length){let p=0;const iv=setInterval(()=>{p+=2;bFill.style.width=p+'%';if(p>=100){clearInterval(iv);setTimeout(()=>document.getElementById('bootScreen').classList.add('hidden'),400);}},18);return;}
-  const m=bootMsg[bi];const d=document.createElement('div');d.className='boot-line '+m.t;d.textContent=m.s;bLines.appendChild(d);bFill.style.width=((bi/bootMsg.length)*85)+'%';bi++;setTimeout(showBoot,180+Math.random()*200);
-}
-showBoot();
-
 // UPTIME
 let sec=0;setInterval(()=>{sec++;const h=String(Math.floor(sec/3600)).padStart(2,'0'),m=String(Math.floor((sec%3600)/60)).padStart(2,'0'),s=String(sec%60).padStart(2,'0');const el=document.getElementById('uptime');if(el)el.textContent=`${h}:${m}:${s}`;},1000);
 let tBase=2847;setInterval(()=>{tBase+=Math.floor(Math.random()*3);const el=document.getElementById('liveThreat');if(el)el.textContent=tBase.toLocaleString();},1800);
@@ -989,6 +977,7 @@ function handleForm(e){
   const btnText = document.getElementById('btnText');
   const btnLoader = document.getElementById('btnLoader');
 
+  document.getElementById('formError').style.display = 'none';
   // Show loading
   btn.disabled = true;
   btnText.style.display = 'none';
@@ -1007,6 +996,7 @@ function handleForm(e){
 
   // POST to Web3Forms — delivers directly to education@dronashield.in
   fetch('https://api.web3forms.com/submit', {
+    signal: AbortSignal.timeout(15000),
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -1043,28 +1033,9 @@ function handleForm(e){
 }
 
 function fallbackMailto(form){
-  const fd = new FormData(form);
-  const name = fd.get('name') || '';
-  const phone = fd.get('phone') || '';
-  const email = fd.get('email') || '';
-  const program = fd.get('program') || '';
-  const message = fd.get('message') || '';
-  const subject = encodeURIComponent('Enrollment Request — Dronashield Institute');
-  const body = encodeURIComponent(
-    'ENROLLMENT REQUEST\n==================\n\n' +
-    'Name: ' + name + '\nPhone: ' + phone + '\nEmail: ' + email +
-    '\nProgram: ' + program + '\n\nMessage:\n' + message +
-    '\n\n-- Sent from Dronashield Institute Website'
-  );
-  window.open('mailto:education@dronashield.in?subject=' + subject + '&body=' + body);
-  // Show success anyway
-  form.style.display = 'none';
-  document.getElementById('formSuccess').style.display = 'block';
-  setTimeout(()=>{
-    form.reset();
-    form.style.display = 'block';
-    document.getElementById('formSuccess').style.display = 'none';
-  }, 6000);
+  const error = document.getElementById('formError');
+  error.innerHTML = 'Your enquiry could not be sent. Your details are still here. Please retry, <a href="https://wa.me/918855010112" target="_blank" rel="noopener noreferrer">WhatsApp us</a>, or <a href="tel:+918855010112">call us</a>.';
+  error.style.display = 'block';
 }
 
 // NAV SCROLL
@@ -1772,5 +1743,5 @@ document.addEventListener('click',e=>{
 })();
 </script>
 
-<script>(function(){const btn=document.getElementById('verifyBtn');const input=document.getElementById('certIdInput');const resultBox=document.getElementById('verifyResult');function esc(s){return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}async function verifyCert(){const id=input.value.trim();if(!id){resultBox.innerHTML='<div style="color:var(--red);font-size:.8rem;">Please enter a Certificate ID.</div>';return;}resultBox.innerHTML='<div style="color:var(--gray-lt);font-size:.8rem;">Checking...</div>';try{const res=await fetch('certificates.json',{cache:'no-store'});const certs=await res.json();const match=certs.find(c => c.certId.toLowerCase() === id.toLowerCase());if(match){resultBox.innerHTML=`<div style="border:1px solid rgba(0,255,65,0.4);background:rgba(0,255,65,0.06);border-radius:10px;padding:20px;"><div style="color:var(--green);font-weight:700;font-family:'Outfit',sans-serif;letter-spacing:.08em;margin-bottom:12px;">✅ CERTIFICATE VALID</div><div style="font-size:.85rem;color:var(--gray-lt);line-height:1.9;"><div><strong style="color:#fff;">Name:</strong> ${esc(match.name)}</div><div><strong style="color:#fff;">Course:</strong> ${esc(match.course)}</div><div><strong style="color:#fff;">Duration:</strong> ${esc(match.startDate)} to ${esc(match.endDate)}</div><div><strong style="color:#fff;">Certificate ID:</strong> ${esc(match.certId)}</div><div><strong style="color:#fff;">Status:</strong> ${esc(match.status || 'Active')}</div></div></div>`;}else{resultBox.innerHTML='<div style="border:1px solid rgba(255,59,107,0.4);background:rgba(255,59,107,0.06);border-radius:10px;padding:20px;color:var(--red);font-weight:700;">❌ CERTIFICATE NOT FOUND. Please check the ID and try again, or contact info@dronashield.in.</div>';}}catch(e){resultBox.innerHTML='<div style="color:var(--red);font-size:.8rem;">Error checking certificate. Please try again later.</div>';}}btn.addEventListener('click', verifyCert);input.addEventListener('keydown', e => { if(e.key === 'Enter') verifyCert(); });})();</script></body>
+<script>(function(){const btn=document.getElementById('verifyBtn');const input=document.getElementById('certIdInput');const resultBox=document.getElementById('verifyResult');function esc(s){return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}async function verifyCert(){const id=input.value.trim();if(!id){resultBox.innerHTML='<div style="color:var(--red);font-size:.8rem;">Please enter a Certificate ID.</div>';return;}resultBox.innerHTML='<div style="color:var(--gray-lt);font-size:.8rem;">Checking...</div>';try{const res=await fetch('certificates.json',{cache:'no-store'});const certs=await res.json();const match=certs.find(c => c.certId.toLowerCase() === id.toLowerCase());if(match && !['active','valid'].includes(String(match.status || 'Active').trim().toLowerCase())){resultBox.innerHTML='<div role="status" style="color:var(--red);">Certificate status: '+esc(match.status)+'. Please contact the institute for clarification.</div>';}else if(match){resultBox.innerHTML=`<div style="border:1px solid rgba(0,255,65,0.4);background:rgba(0,255,65,0.06);border-radius:10px;padding:20px;"><div style="color:var(--green);font-weight:700;font-family:'Outfit',sans-serif;letter-spacing:.08em;margin-bottom:12px;">✅ CERTIFICATE VALID</div><div style="font-size:.85rem;color:var(--gray-lt);line-height:1.9;"><div><strong style="color:#fff;">Name:</strong> ${esc(match.name)}</div><div><strong style="color:#fff;">Course:</strong> ${esc(match.course)}</div><div><strong style="color:#fff;">Duration:</strong> ${esc(match.startDate)} to ${esc(match.endDate)}</div><div><strong style="color:#fff;">Certificate ID:</strong> ${esc(match.certId)}</div><div><strong style="color:#fff;">Status:</strong> ${esc(match.status || 'Active')}</div></div></div>`;}else{resultBox.innerHTML='<div style="border:1px solid rgba(255,59,107,0.4);background:rgba(255,59,107,0.06);border-radius:10px;padding:20px;color:var(--red);font-weight:700;">❌ CERTIFICATE NOT FOUND. Please check the ID and try again, or contact info@dronashield.in.</div>';}}catch(e){resultBox.innerHTML='<div style="color:var(--red);font-size:.8rem;">Error checking certificate. Please try again later.</div>';}}btn.addEventListener('click', verifyCert);input.addEventListener('keydown', e => { if(e.key === 'Enter') verifyCert(); });})();</script></body>
 </html>
